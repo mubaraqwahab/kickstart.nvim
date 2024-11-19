@@ -9,10 +9,12 @@ return {
     set_dark_mode = function()
       vim.api.nvim_set_option_value('background', 'dark', {})
       vim.cmd.colorscheme 'github_dark_dimmed'
+      vim.cmd.hi 'Cursor guibg=bg'
     end,
     set_light_mode = function()
       vim.api.nvim_set_option_value('background', 'light', {})
-      vim.cmd.colorscheme 'github_light_default'
+      vim.cmd.colorscheme 'github_light_high_contrast'
+      vim.cmd.hi 'CursorLine guibg=#c0cdd8'
     end,
   },
 }

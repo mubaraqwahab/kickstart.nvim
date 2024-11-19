@@ -84,6 +84,7 @@ I hope you enjoy your Neovim journey,
 P.S. You can delete this when you're done too. It's your config now! :)
 --]]
 
+-- Disable the default filesystem viewer. Neotree will handle that
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
@@ -94,7 +95,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
@@ -196,10 +197,12 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
+-- Open Neotree on launch. Also remove the line numbers from the Neotree pane
 vim.api.nvim_create_autocmd('VimEnter', {
   callback = function()
     if vim.fn.isdirectory(vim.fn.expand '%') == 1 then
-      vim.cmd 'Neotree'
+      vim.cmd 'Neotree toggle'
+      vim.opt_local.number = false
     end
   end,
 })
@@ -870,6 +873,7 @@ require('lazy').setup({
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
       vim.cmd.colorscheme 'github_light_default'
+      vim.cmd.hi 'Comment gui=none'
     end,
   },
 

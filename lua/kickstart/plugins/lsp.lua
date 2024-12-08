@@ -311,6 +311,14 @@ return {
         astro = { 'prettierd', 'prettier', stop_after_first = true },
         blade = { 'blade-formatter' },
       },
+      formatters = {
+        prettierd = {
+          -- Exclude ANSI color codes from error logs
+          env = {
+            NO_COLOR = '1',
+          },
+        },
+      },
     },
   },
 

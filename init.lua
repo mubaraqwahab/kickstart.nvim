@@ -122,13 +122,10 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
--- Open Neotree on launch. Also remove the line numbers from the Neotree pane
 vim.api.nvim_create_autocmd('VimEnter', {
   callback = function()
     if vim.fn.isdirectory(vim.fn.expand '%') == 1 then
-      vim.cmd 'Neotree toggle'
-      vim.opt_local.number = false
-      vim.opt.relativenumber = false
+      require('nvim-tree.api').tree.open()
     end
   end,
 })

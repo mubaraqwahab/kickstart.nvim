@@ -3,6 +3,7 @@
 
 return {
   'nvim-neo-tree/neo-tree.nvim',
+  enabled = false,
   version = '*',
   dependencies = {
     'nvim-lua/plenary.nvim',
@@ -23,4 +24,16 @@ return {
       },
     },
   },
+  config = function()
+    -- Open Neotree on launch. Also remove the line numbers from the Neotree pane
+    vim.api.nvim_create_autocmd('VimEnter', {
+      callback = function()
+        if vim.fn.isdirectory(vim.fn.expand '%') == 1 then
+          vim.cmd 'Neotree toggle'
+          vim.opt_local.number = false
+          vim.opt.relativenumber = false
+        end
+      end,
+    })
+  end,
 }

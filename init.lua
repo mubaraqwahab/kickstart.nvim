@@ -10,8 +10,10 @@ Stuff to remember:
 --]]
 
 -- Disable the default filesystem viewer. Neotree will handle that
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
+
+vim.g.netrw_liststyle = 3 -- Set tree view as default
 
 -- Set <space> as the leader key
 -- See `:help mapleader`
@@ -119,13 +121,25 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+vim.keymap.set('n', '<leader>e', '<cmd>Explore<CR>')
+
+-- These are supposed to allow me to move selected lines vertically, but they don't seem to work.
+-- See https://youtu.be/w7i4amO_zaE?si=oFTCsh38x-I7r_0m&t=1464
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
+vim.keymap.set('v', 'K', ":m '>-2<CR>gv=gv")
+
+-- Credit: https://youtu.be/w7i4amO_zaE?si=EBWmlvK9HVq8fQex&t=1598
+vim.keymap.set('x', '<leader>p', '"_dP', { desc = 'Paste over the current selection without overwriting the clipboard content' })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
+-- When nvim is launched with a dir arg (as in `nvim path/to/dir`), set the cwd to that dir.
 vim.api.nvim_create_autocmd('VimEnter', {
   callback = function()
-    if vim.fn.isdirectory(vim.fn.expand '%') == 1 then
-      require('nvim-tree.api').tree.open()
+    local arg = vim.fn.argv(0)
+    if type(arg) == 'string' and arg ~= '' and vim.fn.isdirectory(arg) == 1 then
+      vim.cmd('cd ' .. arg)
     end
   end,
 })

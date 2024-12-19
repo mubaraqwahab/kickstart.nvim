@@ -121,8 +121,6 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
-vim.keymap.set('n', '<leader>e', '<cmd>Explore<CR>')
-
 -- These are supposed to allow me to move selected lines vertically, but they don't seem to work.
 -- See https://youtu.be/w7i4amO_zaE?si=oFTCsh38x-I7r_0m&t=1464
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")

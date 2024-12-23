@@ -24,6 +24,10 @@ vim.g.maplocalleader = ' '
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
+-- Settings for the vim-lumen plugin
+vim.g.lumen_light_colorscheme = 'github_light_default'
+vim.g.lumen_dark_colorscheme = 'github_dark_default'
+
 -- [[ Setting options ]]
 -- See `:help vim.opt` and `:help option-list`
 

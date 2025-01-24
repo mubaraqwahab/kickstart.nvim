@@ -7,5 +7,7 @@ return {
     end,
   },
 
-  { 'vimpostor/vim-lumen' },
+  {
+    'vimpostor/vim-lumen',
+  },
 }

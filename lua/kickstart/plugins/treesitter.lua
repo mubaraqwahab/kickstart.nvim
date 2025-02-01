@@ -61,4 +61,11 @@ return {
 
   -- Astro treesitter grammar bindings
   { 'virchau13/tree-sitter-astro' },
+
+  -- Fixes JSX comment issue. See https://github.com/neovim/neovim/issues/28830
+  {
+    'folke/ts-comments.nvim',
+    opts = {},
+    event = 'VeryLazy',
+  },
 }

@@ -29,6 +29,7 @@ vim.g.lumen_light_colorscheme = 'github_light_default'
 vim.g.lumen_dark_colorscheme = 'github_dark_default'
 
 vim.cmd.autocmd 'User LumenDark hi CursorLine guibg=#23262b'
+vim.cmd.autocmd 'User LumenLight hi DiagnosticHint guifg=#495969'
 
 -- [[ Setting options ]]
 -- See `:help vim.opt` and `:help option-list`

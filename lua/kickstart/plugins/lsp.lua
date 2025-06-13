@@ -195,10 +195,14 @@ return {
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         ts_ls = {},
 
-        -- emmet_ls = {
-        --   capabilities = capabilities,
-        --   filetypes = { 'javascriptreact', 'typescriptreact' },
-        -- },
+        emmet_ls = {
+          capabilities = capabilities,
+          filetypes = {
+            'blade',
+            -- 'javascriptreact',
+            -- 'typescriptreact',
+          },
+        },
 
         html = {
           capabilities = capabilities,
@@ -206,7 +210,10 @@ return {
 
         cssls = {
           capabilities = capabilities,
+          filetypes = { 'css', 'less' },
         },
+
+        somesass_ls = {},
 
         tailwindcss = {
           settings = {
@@ -335,8 +342,9 @@ return {
         scss = { 'prettierd', 'prettier', stop_after_first = true },
         html = { 'prettierd', 'prettier', stop_after_first = true },
         astro = { 'prettierd', 'prettier', stop_after_first = true },
-        php = { 'prettierd', 'prettier', stop_after_first = true },
+        php = { 'pint', 'prettierd', 'prettier', stop_after_first = true },
         markdown = { 'prettierd', 'prettier', stop_after_first = true },
+        blade = { 'prettierd', 'prettier', stop_after_first = true },
       },
       formatters = {
         prettierd = {

@@ -9,11 +9,11 @@ Stuff to remember:
 
 --]]
 
--- Disable the default filesystem viewer. Neotree will handle that
--- vim.g.loaded_netrw = 1
--- vim.g.loaded_netrwPlugin = 1
-
-vim.g.netrw_liststyle = 3 -- Set tree view as default
+-- Disable the default filesystem viewer.
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+-- Set tree view as default (when netrw is enabled)
+vim.g.netrw_liststyle = 3
 
 -- Set <space> as the leader key
 -- See `:help mapleader`

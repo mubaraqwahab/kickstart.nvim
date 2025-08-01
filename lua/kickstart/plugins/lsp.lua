@@ -342,7 +342,7 @@ return {
         scss = { 'prettierd', 'prettier', stop_after_first = true },
         html = { 'prettierd', 'prettier', stop_after_first = true },
         astro = { 'prettierd', 'prettier', stop_after_first = true },
-        php = { 'pint', 'prettierd', 'prettier', stop_after_first = true },
+        php = { 'prettierd', 'prettier', 'pint', stop_after_first = true },
         markdown = { 'prettierd', 'prettier', stop_after_first = true },
         blade = { 'prettierd', 'prettier', stop_after_first = true },
       },
@@ -469,6 +469,7 @@ return {
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'path' },
+          { name = 'supermaven' },
         },
       }
     end,
